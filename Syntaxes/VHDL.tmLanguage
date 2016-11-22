@@ -81,7 +81,7 @@
 
 						# The word architecture $1
 						\b((?i:architecture))\s+
-						
+
 						# Followed up by a valid $3 or invalid identifier $4
 						(([a-zA-z][a-zA-z0-9_]*)|(.+))(?=\s)\s+
 
@@ -406,16 +406,69 @@
 			<array>
 				<dict>
 					<key>match</key>
+					<string>--!.*$\n?</string>
+					<key>name</key>
+					<string>comment.documentation.line.vhdl</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>--\*.*$\n?</string>
+					<key>name</key>
+					<string>comment.line2.double-dash.vhdl</string>
+				</dict>
+				<dict>
+					<key>match</key>
 					<string>--.*$\n?</string>
 					<key>name</key>
 					<string>comment.line.double-dash.vhdl</string>
 				</dict>
-			</array>
 				<dict>
-					<key>match</key>
-					<string>--!.*$\n?</string>
+					<key>begin</key>
+					<string>/\*!</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.vhdl</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\*/</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.vhdl</string>
+						</dict>
+					</dict>
 					<key>name</key>
-					<string>comment.line.documentation.vhdl</string>
+					<string>comment.documentation.block.vhdl</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>/\*\*</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.vhdl</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\*/</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.vhdl</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>comment.block2.code.vhdl</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -441,30 +494,7 @@
 					<key>name</key>
 					<string>comment.block.code.vhdl</string>
 				</dict>
-				<dict>
-					<key>begin</key>
-					<string>/\*!</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.vhdl</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>\*/</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.vhdl</string>
-						</dict>
-					</dict>
-					<key>name</key>
-					<string>comment.block.documentation.vhdl</string>
-				</dict>
+			</array>
 		</dict>
 		<key>component_instantiation_pattern</key>
 		<dict>
@@ -582,7 +612,7 @@
 
 						# The word component $3 or illegal word $4
 						(((?i:component\b))|(.+?))(?=\s*|;)
-						
+
 						# Optional identifier $7 or illegal mismatched $8
 						(\s+((\3)|(.+?)))?(?=\s*;)
 					</string>
@@ -903,7 +933,7 @@
 
 						# Optional identifier match $6 or indentifier mismatch $7
 						(\s+((\3)|(.+?)))?
-						
+
 						# Make sure there is a semicolon following
 						(?=\s*;)
 					</string>
@@ -1218,7 +1248,7 @@
 						# The word function $1
 						((?i:function))\s+
 
-						
+
 						(
 							# A valid normal identifier $3
 							 ([a-zA-Z][a-zA-Z\d_]*)
