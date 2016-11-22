@@ -411,6 +411,60 @@
 					<string>comment.line.double-dash.vhdl</string>
 				</dict>
 			</array>
+				<dict>
+					<key>match</key>
+					<string>--!.*$\n?</string>
+					<key>name</key>
+					<string>comment.line.documentation.vhdl</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>/\*</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.vhdl</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\*/</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.vhdl</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>comment.block.code.vhdl</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>/\*!</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.vhdl</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\*/</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.vhdl</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>comment.block.documentation.vhdl</string>
+				</dict>
 		</dict>
 		<key>component_instantiation_pattern</key>
 		<dict>
