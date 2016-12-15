@@ -1,20 +1,87 @@
 <snippet>
   <tabTrigger>vhdl</tabTrigger>
   <scope>source.vhdl</scope>
-  <content>library ieee ;
-	use ieee.std_logic_1164.all ;
-	use ieee.numeric_std.all ;
+  <content>-- -----------------------------------------------------------------------------
+--  company Quest Innovations B.V. (C)
+--  file ${1:${TM_FILENAME/(.*?)(\..+)/$1/}}.vhd
+-- -----------------------------------------------------------------------------
+--
+-- Copyright statement: 	                  (c) YYYY by Quest Innovations B.V.
+-- All rights reserved. No part of this document may be photocopied, reproduced
+-- or translated in any way, without the prior written consent of
+-- Quest Innovations B.V. This document contains company confidential
+-- information and may only be used and accessible by intended parties.
+--
+-- Every effort has been made to make the supplied product and its documentation
+-- as accurate as possible. Quest Innovations B.V. will neither assume
+-- responsibility for any damages caused by the use of its products, nor accept
+-- warranty or update claims, unless stated otherwise in a special license
+-- agreement.
+--
+-- The information contained in this document is subject to change without
+-- notice.
+--
+-- Printed in The Netherlands.
+--
+-- -----------------------------------------------------------------------------
+--
+-- \$Archive\$
+-- \$Branch\$
+-- \$Author\$
+-- \$Date\$
+-- \$Revision\$
+--
+-- -----------------------------------------------------------------------------
+-- General Description:
+--! \class	${1:${TM_FILENAME/(.*?)(\..+)/$1/}}
+--! \author	[author]
+--! \date	[DD-MM-YYYY]
+--! \brief	[Description of the component in one sentence]
+--! \details [Detailed description]
+-- -----------------------------------------------------------------------------
+
+library ieee; --! standard VHDL library
+use ieee.std_logic_1164.all; --! for std_logic(_vector) etc.
 
 entity ${1:${TM_FILENAME/(.*?)(\..+)/$1/}} is
-  port (
-	${0:clock}
-  ) ;
-end entity ; -- ${1:${TM_FILENAME/(.*?)(\..+)/$1/}}
+	generic (
+		mem_addr_width	: natural;
+	);
+	port (
+		clk		: in std_logic; --! Input CLK
+		reset	: in std_logic; --! Active high reset.
+);
+end ${1:${TM_FILENAME/(.*?)(\..+)/$1/}};
 
-architecture ${2:arch} of ${1:${TM_FILENAME/(.*?)(\..+)/$1/}} is
+--! \brief	[Description of the architecture in one sentence]
+--! \details [Detailed description]
+architecture ${1:${TM_FILENAME/(.*?)(\..+)/$1/}}_arch of ${1:${TM_FILENAME/(.*?)(\..+)/$1/}} is
+
+--! Statemachine type definition for \link example_statemachine \endlink
+type example_statemachine_type is (init, idle);
+--! Statemachine signal definition
+signal example_statemachine : example_statemachine_type;
+
+signal example_signal 		: std_logic; --! Example signal documentation.
 
 begin
 
-end architecture ; -- ${2:arch}</content>
+--! \brief Exapmle process of \link example_statemachine_type \endlink
+--! \param clk SPI input clock
+--! \param reset Active high reset.
+--! \details \par
+--! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lectus
+--! augue, congue ut maximus in, hendrerit ut metus. Mauris nec neque placerat
+--! diam finibus pulvinar at et diam. Sed accumsan neque mi, blandit bibendum
+--! magna placerat eget. Vivamus massa dolor, tempus et vestibulum id, pulvinar
+--! eget turpis.
+--! \par State diagram.
+--! \dotfile example_statemachine.gv
+p_example_statemachine_machine : process(clk, reset)
+begin
+
+end process;
+
+end ${1:${TM_FILENAME/(.*?)(\..+)/$1/}}_arch;</content>
   <description>vhdl template</description>
 </snippet>
