@@ -1,8 +1,54 @@
 <snippet>
   <tabTrigger>pack</tabTrigger>
   <scope>source.vhdl</scope>
-  <content>package ${1:${TM_FILENAME/(.*?)(\..+)/$1_p/}} is
+  <content>-- -----------------------------------------------------------------------------
+--  company Quest Innovations B.V. (C)
+--  file ${1:${TM_FILENAME/(.*?)(\..+)/$1/}}.vhd
+-- -----------------------------------------------------------------------------
+--
+-- Copyright statement: 	                  (c) YYYY by Quest Innovations B.V.
+-- All rights reserved. No part of this document may be photocopied, reproduced
+-- or translated in any way, without the prior written consent of
+-- Quest Innovations B.V. This document contains company confidential
+-- information and may only be used and accessible by intended parties.
+--
+-- Every effort has been made to make the supplied product and its documentation
+-- as accurate as possible. Quest Innovations B.V. will neither assume
+-- responsibility for any damages caused by the use of its products, nor accept
+-- warranty or update claims, unless stated otherwise in a special license
+-- agreement.
+--
+-- The information contained in this document is subject to change without
+-- notice.
+--
+-- Printed in The Netherlands.
+--
+-- -----------------------------------------------------------------------------
+--
+-- \$Archive\$
+-- \$Branch\$
+-- \$Author\$
+-- \$Date\$
+-- \$Revision\$
+--
+-- -----------------------------------------------------------------------------
+-- General Description:
+--! \class	${1:${TM_FILENAME/(.*?)(\..+)/$1/}}
+--! \author	[author]
+--! \date	[DD-MM-YYYY]
+--! \brief	[Description of the component in one sentence]
+--! \details [Detailed description]
+-- -----------------------------------------------------------------------------
+
+library ieee; --! standard VHDL library
+use ieee.std_logic_1164.all; --! for std_logic(_vector) etc.
+
+package ${1:${TM_FILENAME/(.*?)(\..+)/$1/}} is
 	$0
-end package ; -- ${1:${TM_FILENAME/(.*?)(\..+)/$1_p/}} </content>
+end ${1:${TM_FILENAME/(.*?)(\..+)/$1/}};
+
+package body ${1:${TM_FILENAME/(.*?)(\..+)/$1/}} is
+
+end ${1:${TM_FILENAME/(.*?)(\..+)/$1/}};</content>
   <description>package</description>
 </snippet>

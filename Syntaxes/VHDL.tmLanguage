@@ -179,6 +179,10 @@
 						</dict>
 						<dict>
 							<key>include</key>
+							<string>#case_pattern</string>
+						</dict>
+						<dict>
+							<key>include</key>
 							<string>#if_pattern</string>
 						</dict>
 						<dict>
@@ -322,7 +326,7 @@
 						\b((?i:end))\s*
 
 						# The word case $4 or invalid word $5
-						(\s+(((?i:case))|(.*?)))
+						(\s+(((?i:generate|case))|(.*?)))
 
 						# Optional identifier from before $8 or illegal $9
 						(\s+((\2)|(.*?)))?
@@ -2421,6 +2425,18 @@
 					<string>\b(?i:line|text|side|width|input|output)\b</string>
 					<key>name</key>
 					<string>support.type.std.textio.vhdl</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(?i:clink_bus|clink_bus_array|clink_bus32|clink_bus32_array|clink_bus64|clink_bus64_array)\b</string>
+					<key>name</key>
+					<string>support.type.q_synth_lib.clink_cfg_pack.vhdl</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(?i:std_logic_vector_array)\b</string>
+					<key>name</key>
+					<string>support.type.q_synth_lib.misc_types_pack.vhdl</string>
 				</dict>
 				<dict>
 					<key>match</key>
